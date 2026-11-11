@@ -29,7 +29,7 @@
       '<div class="row" style="margin-top:18px"><a class="btn gold" href="' + (hasProducts ? 'dashboard.html' : 'produtos.html') + '">' + (hasProducts ? 'Abrir meu painel' : 'Cadastrar meu primeiro produto') + '</a>' +
       '<a class="btn" style="background:rgba(255,255,255,.12);color:#fff" href="receitas.html">' + icon('book') + ' Ver receitas</a>' +
       (DL.mode.isDemo() ? '' : '<button class="btn" style="background:rgba(255,255,255,.12);color:#fff" type="button" data-act="enter-demo">' + icon('eye') + ' Conhecer com exemplos</button>') + '</div></div>' +
-      '<div class="hero-art">' + DL.art('mix', { label: 'Ilustração de brigadeiros, beijinhos e trufas' }) + '</div></section>' +
+      '<div class="hero-art">' + '<img src="img/receitas/home-doces.jpg" alt="Brigadeiros, beijinhos, trufas e brownies sobre uma mesa de madeira">' + '</div></section>' +
 
       (backupOld ? '<div class="alert section">' + icon('shield') + '<div><b>Hora de fazer um backup.</b> Seus dados ficam só neste aparelho. <a href="backup.html">Salvar um backup agora</a>.</div></div>' : '') +
 
