@@ -233,7 +233,7 @@
     o = o || {};
     return '<div class="stat ' + (o.tone || '') + '"><div class="ico">' + icon(o.icon || 'coins') + '</div><div><div class="k">' + esc(label) + '</div><div class="v">' + value + '</div>' + (o.note ? '<div class="n">' + o.note + '</div>' : '') + '</div></div>';
   };
-  const emptyState = (title, text, action) => '<div class="empty">' + DL.art(action && action.art ? action.art : 'brigadeiro').replace('<svg ', '<svg class="art" ') + '<h3>' + esc(title) + '</h3><p>' + text + '</p>' + (action && action.href ? '<a class="btn primary" href="' + action.href + '">' + esc(action.label) + '</a>' : '') + '</div>';
+  const emptyState = (title, text, action) => '<div class="empty">' + DL.art(action && action.art ? action.art : 'brigadeiro').replace(/^<(svg|img) /, '<$1 class="art" ') + '<h3>' + esc(title) + '</h3><p>' + text + '</p>' + (action && action.href ? '<a class="btn primary" href="' + action.href + '">' + esc(action.label) + '</a>' : '') + '</div>';
   const periodPicker = (id) => '<div class="field"><label for="' + id + '-p">Período</label><select id="' + id + '-p">' + options(DL.PRESETS.map((p) => [p[0], p[1]]), '30d') + '</select></div>' +
     '<div class="field" data-custom hidden><label for="' + id + '-f">De</label><input type="date" id="' + id + '-f"></div><div class="field" data-custom hidden><label for="' + id + '-t">Até</label><input type="date" id="' + id + '-t"></div>';
   // Lê o período escolhido: devolve {from,to} ou {error}

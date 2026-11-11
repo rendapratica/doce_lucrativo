@@ -17,7 +17,7 @@
     const vals = read();
     const blank = !vals.ingredients && !vals.qty;
     $('#mode-hint').textContent = mode === 'margin' ? 'Ex.: margem de 50% significa que metade do preço é lucro.' : 'Ex.: markup de 100% significa cobrar o dobro do custo.';
-    if (blank && !touched) { last = null; $('#result').innerHTML = '<div class="card center muted">' + DL.art('brigadeiro').replace('<svg ', '<svg style="width:180px;border-radius:16px;margin:0 auto 10px;display:block" ') + '<p>Preencha os custos ao lado e veja o preço ideal aparecer aqui.</p></div>'; $('#apply-card').hidden = true; DL.ui.showErrors(form, {}); return; }
+    if (blank && !touched) { last = null; $('#result').innerHTML = '<div class="card center muted">' + DL.art('brigadeiro').replace(/^<(svg|img) /, '<$1 style="width:180px;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin:0 auto 10px;display:block" ') + '<p>Preencha os custos ao lado e veja o preço ideal aparecer aqui.</p></div>'; $('#apply-card').hidden = true; DL.ui.showErrors(form, {}); return; }
     const r = DL.calc.priceCalc(vals);
     if (!r.ok) {
       last = null; $('#apply-card').hidden = true;

@@ -134,7 +134,7 @@ td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: t
 td.actions { white-space: nowrap; text-align: right; }
 tfoot td { font-weight: 800; background: var(--cream); }
 .empty { text-align: center; padding: 38px 18px; color: var(--muted); }
-.empty svg.art { width: 150px; margin: 0 auto 10px; display: block; border-radius: 18px; }
+.empty .art { width: 150px; margin: 0 auto 10px; display: block; border-radius: 18px; } .empty img.art { aspect-ratio: 4 / 3; object-fit: cover; }
 
 /* Produtos / receitas: grade de cartões com imagem */
 .cards-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }

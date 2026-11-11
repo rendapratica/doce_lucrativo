@@ -1,4 +1,4 @@
-/* art.js — ilustrações originais (SVG) de doces, usadas como "foto ilustrativa" quando
+/* art.js — fotos dos doces (img/receitas) e, na falta delas, ilustrações originais (SVG) usadas quando
    não há uma fotografia. Nenhuma imagem externa: funciona offline e sem direitos autorais. */
 (function (global) {
   'use strict';
@@ -127,5 +127,19 @@
     s += '<rect width="400" height="300" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="6"/></svg>';
     return s;
   }
-  DL.art = art;
+  DL.artSvg = art;
+
+  // Fotos reais de cada tipo de doce. Quando existe foto, DL.art devolve <img>; senão, o desenho em SVG.
+  const PHOTOS = {
+    brigadeiro: 'brigadeiro-tradicional', gourmet: 'brigadeiro-gourmet', beijinho: 'beijinho', trufa: 'trufa-chocolate-ao-leite',
+    maracuja: 'trufa-maracuja', ninho: 'ninho-brigadeiro-branco', cajuzinho: 'cajuzinho', olho: 'olho-de-sogra', brownie: 'brownie-tradicional',
+    palha: 'palha-italiana', 'pote-choc': 'bolo-pote-chocolate', 'pote-ninho': 'bolo-pote-ninho-morango', mix: 'home-doces',
+  };
+  DL.art = function (kind, opts) {
+    opts = opts || {};
+    const file = PHOTOS[kind];
+    if (!file) return art(kind, opts);
+    const label = (opts.label || (K[kind] && K[kind].label) || 'Doces').replace(/^Ilustração (de |: )?/, '');
+    return '<img src="img/receitas/' + file + '.jpg" alt="' + label.replace(/"/g, '&quot;') + '" loading="lazy">';
+  };
 })(typeof globalThis !== 'undefined' ? globalThis : window);
